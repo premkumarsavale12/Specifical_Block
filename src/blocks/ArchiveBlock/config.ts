@@ -7,7 +7,8 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-export const Archive: Block = {
+export const Archive: Block = {  
+  
   slug: 'archive',
   interfaceName: 'ArchiveBlock',
   fields: [

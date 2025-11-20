@@ -1,7 +1,10 @@
+
 'use client'
 import { Highlight, themes } from 'prism-react-renderer'
 import React from 'react'
-import { CopyButton } from './CopyButton'
+// import { CopyButton } from './CopyButton'
+
+
 
 type Props = {
   code: string
@@ -25,7 +28,7 @@ export const Code: React.FC<Props> = ({ code, language = '' }) => {
               </span>
             </div>
           ))}
-          <CopyButton code={code} />
+          {/* <CopyButton code={code} /> */}
         </pre>
       )}
     </Highlight>
