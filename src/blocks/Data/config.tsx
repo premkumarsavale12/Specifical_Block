@@ -1,14 +1,12 @@
+
 import { Block } from "payload";
 
 
+export const Data: Block = {
 
-export const Date: Block = {
-
-    slug: 'date',
-    interfaceName: 'DateBlock',
+    slug: 'data',
+    interfaceName: 'data',
     fields: [
-
-
         {
             name: 'dateOnly',
             type: 'date',
@@ -39,5 +37,29 @@ export const Date: Block = {
                 },
             },
         },
+
+
+        {
+            name: 'contect',
+            type: 'email',
+            label: 'Contact Email',
+            required: true
+        },
+
+        {
+            name: 'description',
+            type: 'textarea',
+            required: true,
+            minLength: 20,
+            maxLength: 100
+        },
+         
+         {
+             name:'age',
+              type:'number',
+               required:true,
+                
+         }
     ]
+
 }

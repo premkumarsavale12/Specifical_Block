@@ -8,10 +8,17 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { BannerBlock } from '@/blocks/Banner/Component'
-import { BannBlock }  from '@/blocks/Bann/component'
-import {CodeBlock}  from '@/blocks/Code/Component'
-import { LanguageBlock }  from '@/blocks/Language/Component'
-import { MainBlock} from '@/blocks/Main/Component'
+import { BannBlock } from '@/blocks/Bann/component'
+import { CodeBlock } from '@/blocks/Code/Component'
+import { LanguageBlock } from '@/blocks/Language/Component'
+import { MainBlock } from '@/blocks/Main/Component'
+import { SampleBlockComponent } from '@/blocks/Sample/Component'
+import { DataBlockComponent } from '@/blocks/Data/Component'
+import { Right } from '@/blocks/Right/Component'
+
+import { FAQ } from '@/blocks/FAQ/Component'
+
+
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -19,12 +26,20 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-   banner : BannerBlock,
-  bann : BannBlock,
-  code :CodeBlock,
-   languge :LanguageBlock,
-    main: MainBlock
-   
+  banner: BannerBlock,
+  bann: BannBlock,
+  code: CodeBlock,
+  languge: LanguageBlock,
+  main: MainBlock,
+  sample: SampleBlockComponent,
+  data: DataBlockComponent,
+  faq: FAQ,
+  right :Right
+
+
+
+
+
 }
 
 export const RenderBlocks: React.FC<{
@@ -46,7 +61,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <div className="my-16" key={index}>
-         
+
                   <Block {...block} disableInnerContainer />
                 </div>
               )

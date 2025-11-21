@@ -210,7 +210,11 @@ export interface Page {
     | CodeBlock
     | LanguageBlock
     | MainBlock
-    | DateBlock
+    | Sample
+    | Simple
+    | Data
+    | Faq
+    | Right
   )[];
   meta?: {
     title?: string | null;
@@ -891,15 +895,88 @@ export interface MainBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "DateBlock".
+ * via the `definition` "sample".
  */
-export interface DateBlock {
+export interface Sample {
+  title: string;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sample';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "simple".
+ */
+export interface Simple {
+  subtitle?: string | null;
+  contact: string;
+  title: string;
+  description: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'simple';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "data".
+ */
+export interface Data {
   dateOnly?: string | null;
   timeOnly?: string | null;
   monthOnly?: string | null;
+  contect: string;
+  description: string;
+  age: number;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'date';
+  blockType: 'data';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faq".
+ */
+export interface Faq {
+  items?:
+    | {
+        Question: string;
+        Answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "right".
+ */
+export interface Right {
+  items?:
+    | {
+        media: string | Media;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'right';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1214,7 +1291,11 @@ export interface PagesSelect<T extends boolean = true> {
         code?: T | CodeBlockSelect<T>;
         languge?: T | LanguageBlockSelect<T>;
         main?: T | MainBlockSelect<T>;
-        date?: T | DateBlockSelect<T>;
+        sample?: T | SampleSelect<T>;
+        simple?: T | SimpleSelect<T>;
+        data?: T | DataSelect<T>;
+        faq?: T | FaqSelect<T>;
+        right?: T | RightSelect<T>;
       };
   meta?:
     | T
@@ -1366,12 +1447,67 @@ export interface MainBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "DateBlock_select".
+ * via the `definition` "sample_select".
  */
-export interface DateBlockSelect<T extends boolean = true> {
+export interface SampleSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "simple_select".
+ */
+export interface SimpleSelect<T extends boolean = true> {
+  subtitle?: T;
+  contact?: T;
+  title?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "data_select".
+ */
+export interface DataSelect<T extends boolean = true> {
   dateOnly?: T;
   timeOnly?: T;
   monthOnly?: T;
+  contect?: T;
+  description?: T;
+  age?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faq_select".
+ */
+export interface FaqSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        Question?: T;
+        Answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "right_select".
+ */
+export interface RightSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        media?: T;
+        richText?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

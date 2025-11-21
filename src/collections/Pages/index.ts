@@ -12,12 +12,12 @@ import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import {Banner} from '../../blocks/Banner/config'
-import {Bann} from '../../blocks/Bann/config'
-import { Code} from '../../blocks/Code/config'
-import { Language }  from '../../blocks/Language/config'  
+import { Banner } from '../../blocks/Banner/config'
+import { Bann } from '../../blocks/Bann/config'
+import { Code } from '../../blocks/Code/config'
+import { Language } from '../../blocks/Language/config'
 import { Main } from '../../blocks/Main/config'
-import {Date} from '../../blocks/Date/config'
+
 
 import {
   MetaDescriptionField,
@@ -26,6 +26,13 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { Sample } from '@/blocks/Sample/config'
+import { Simple } from '@/blocks/Simple/config'
+import { Data } from '@/blocks/Data/config'
+import { FAQ } from '@/blocks/FAQ/config'
+import { Right } from '@/blocks/Right/config'
+
+
 
 
 export const Pages: CollectionConfig<'pages'> = {
@@ -74,13 +81,13 @@ export const Pages: CollectionConfig<'pages'> = {
           fields: [hero],
           label: 'Hero',
         },
-        
+
         {
           fields: [
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Banner, Bann, Code, Language, Main, Date],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Banner, Bann, Code, Language, Main, Sample, Simple, Data, FAQ, Right],
               required: true,
               admin: {
                 initCollapsed: true,
