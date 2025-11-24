@@ -3,7 +3,6 @@ import { Item } from "@radix-ui/react-select";
 
 export const Example = (props: any) => {
 
-    console.log(props);
 
     const sliders = Array.isArray(props.sliders) ? props.sliders : [];
 

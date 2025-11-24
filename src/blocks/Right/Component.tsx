@@ -1,61 +1,65 @@
 import React from "react";
 import RichText from "@/components/RichText";
 import { Media } from "@/components/Media";
+import { Button } from "@payloadcms/ui";
 
 interface RightProps {
   items: {
     media: any;
     richText: any;
+    label: string;
   }[];
 }
 
-export const Right: React.FC<RightProps> = ({ items = [] }) => { 
+export const Right: React.FC<RightProps> = ({ items = [] }) => {
 
-  return ( 
+  return (
 
-    <div className="container mx-auto"> 
+    <div className="container mx-auto">
 
-      <div className="flex flex-col md:flex-row items-start gap-6">
+      <div className="flex flex-col gap-10">
 
-      
-        <div className="w-full md:w-1/2"> 
+        {items.map((item, index) => {
+          const isEven = index % 2 === 0
+          return (
 
-          {items.map((item, index) => ( 
+            <div
 
-            <div key={index} className="mb-4"> 
+              key={index}
 
-              {item.media && <Media resource={item.media} />} 
+              className={`flex flex-col md:flex-row items-start gap-6 
+            ${isEven ? "" : "md:flex-row-reverse"}`}
 
-            </div> 
 
-          ))} 
 
-        </div>
+            >
 
-     
-        <div className="w-full md:w-1/2"> 
+              <div className="w-full md:w-1/2">
 
-          {items.map((item, index) => ( 
+                {item.media && <Media resource={item.media} />}
 
-            <div key={index} className="mb-4"> 
+              </div>
 
-              {item.richText && ( 
 
-                <RichText data={item.richText} enableGutter={false} /> 
+              <div className="w-full md:w-1/2 flex flex-col gap-4">
+                {item.richText && (
+                  <RichText data={item.richText} enableGutter={false} />
+                )}
 
-              )} 
+                {item.label && (
+                  <Button className="h-12 w-40 bg-blue-500 text-white rounded-md">
+                    {item.label}
+                  </Button>
+                )}
+              </div>
+            </div>
 
-            </div> 
-
-          ))} 
-          
-
-          <button className="mt-4 px-6 py-3 w-40 h-12 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
-            Click Me
-          </button>
-        </div>
+          )
+        })}
 
       </div>
     </div>
+
+
   );
 };

@@ -215,6 +215,7 @@ export interface Page {
     | Data
     | Faq
     | Right
+    | Slider
   )[];
   meta?: {
     title?: string | null;
@@ -956,6 +957,7 @@ export interface Right {
   items?:
     | {
         media: string | Media;
+        label: string;
         richText?: {
           root: {
             type: string;
@@ -977,6 +979,21 @@ export interface Right {
   id?: string | null;
   blockName?: string | null;
   blockType: 'right';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "slider".
+ */
+export interface Slider {
+  sliders?:
+    | {
+        media: string | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'slider';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1296,6 +1313,7 @@ export interface PagesSelect<T extends boolean = true> {
         data?: T | DataSelect<T>;
         faq?: T | FaqSelect<T>;
         right?: T | RightSelect<T>;
+        slider?: T | SliderSelect<T>;
       };
   meta?:
     | T
@@ -1505,7 +1523,22 @@ export interface RightSelect<T extends boolean = true> {
     | T
     | {
         media?: T;
+        label?: T;
         richText?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "slider_select".
+ */
+export interface SliderSelect<T extends boolean = true> {
+  sliders?:
+    | T
+    | {
+        media?: T;
         id?: T;
       };
   id?: T;

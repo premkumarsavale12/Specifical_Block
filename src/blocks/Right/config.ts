@@ -29,6 +29,13 @@ export const Right: Block = {
                     required: true,
                 },
 
+                {
+                    name: 'label',
+                    type: 'text',
+                    label: 'Button Label',
+                    required: true,
+
+                },
 
                 {
                     name: 'richText',

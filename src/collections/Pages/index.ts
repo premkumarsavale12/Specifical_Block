@@ -31,6 +31,8 @@ import { Simple } from '@/blocks/Simple/config'
 import { Data } from '@/blocks/Data/config'
 import { FAQ } from '@/blocks/FAQ/config'
 import { Right } from '@/blocks/Right/config'
+import { Slider } from '@/blocks/Slider/config'
+
 
 
 
@@ -87,7 +89,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Banner, Bann, Code, Language, Main, Sample, Simple, Data, FAQ, Right],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Banner, Bann, Code, Language, Main, Sample, Simple, Data, FAQ, Right, Slider],
               required: true,
               admin: {
                 initCollapsed: true,

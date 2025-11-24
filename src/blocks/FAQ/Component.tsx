@@ -2,7 +2,7 @@
 
 
 export const FAQ = (props: any) => { 
-    console.log(props)
+
 
     const items = Array.isArray(props.items) ? props.items : [];
 

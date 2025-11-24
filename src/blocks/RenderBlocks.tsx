@@ -15,8 +15,10 @@ import { MainBlock } from '@/blocks/Main/Component'
 import { SampleBlockComponent } from '@/blocks/Sample/Component'
 import { DataBlockComponent } from '@/blocks/Data/Component'
 import { Right } from '@/blocks/Right/Component'
+import { Slider} from '@/blocks/Slider/Component'
 
 import { FAQ } from '@/blocks/FAQ/Component'
+
 
 
 
@@ -34,7 +36,9 @@ const blockComponents = {
   sample: SampleBlockComponent,
   data: DataBlockComponent,
   faq: FAQ,
-  right :Right
+  right :Right,
+  slider:Slider
+
 
 
 
